@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function count(arr, data) {
+        var count = 0;
+      for(var i=0;i<arr.length;i++)
+      {
+          if(arr[i]==data)
+          {
+              count++;
+          }
+      }
+
+        return count;
+    }
+    function dispArr(nums) {
+        var data='';
+        for(var i=0;i<nums.length;i++)
+        {
+            data+=nums[i]+' ';
+            if (i % 10 == 9) {
+                data += "</br>";
+            }
+        }
+        document.write(data);
+    }
+    function insertionsort(nums)
+    {
+
+        for(var i=0;i<nums.length;i++)
+        {
+            var temp;
+            var j=i;
+            for(;j<=nums.length;j++)
+            {
+                if(nums[i]>nums[j])
+                {
+                    temp=nums[i];
+                    nums[i]=nums[j];
+                    nums[j]=temp;
+                }
+            }
+        }
+    }
+    var nums = [];
+    for(var i=0;i<100;++i)
+    {
+        nums[i] = Math.floor(Math.random() * 101);
+    }
+    insertionsort(nums);
+    dispArr(nums);
+    document.write("<br/>");
+    var val = parseInt(prompt("Enter a value to count: "));
+    var retVal = count(nums, val);
+    document.write("Found " + retVal + " occurrences of  " + val + ".");
+</script>
+</body>
+</html>
